@@ -1,0 +1,8 @@
+{
+  "name": "DnD Money Tracker",
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "action": {
+    "title": "Money Tracker"
+  }
+}
