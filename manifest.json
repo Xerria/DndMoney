@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "manifest_version": 1,
   "action": {
-    "title": "Money Tracker"
+    "title": "Money Tracker",
+    "icon": "/icon.png"
   }
 }
