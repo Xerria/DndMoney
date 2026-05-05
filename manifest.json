@@ -4,6 +4,7 @@
   "manifest_version": 1,
   "action": {
     "title": "Money Tracker",
-    "icon": "/icon.png"
+    "icon": "/icon.png",
+    "popover": "/index.html"
   }
 }
