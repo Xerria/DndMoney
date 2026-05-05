@@ -5,6 +5,7 @@
   "action": {
     "title": "Grimoire",
     "icon": "https://xerria.github.io/DndMoney/icon.png",
-    "popover": "https://xerria.github.io/DndMoney/index.html"
+    "popover": "https://xerria.github.io/DndMoney/index.html",
+    "type": "panel"
   }
 }
