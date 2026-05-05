@@ -1,70 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<title>Grimoire Money</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Uncial+Antiqua&display=swap" rel="stylesheet">
 
 <style>
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  width: 300px;
+  height: 420px;
   background: #2b1e14;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  font-family: 'Cinzel', serif;
 }
 
-/* หนังสือ */
+/* กรอบหนังสือ */
 .book {
-  width: 300px;
-  background: #f4e4c1;
-  border: 5px solid #5c3b1e;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/parchment.png");
+  border: 4px solid #5c3b1e;
   border-radius: 10px;
-  box-shadow: 0 0 20px black;
-  padding: 15px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 10px black;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 /* หัวข้อ */
 .title {
   text-align: center;
-  font-family: 'Uncial Antiqua';
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #4a2f16;
+}
+
+/* เส้น */
+hr {
+  border: 1px solid #5c3b1e;
+  margin: 5px 0;
 }
 
 /* ช่องเงิน */
 .row {
   display: flex;
   justify-content: space-between;
-  margin: 6px 0;
-  font-family: 'Cinzel';
+  margin: 4px 0;
+  font-size: 14px;
 }
 
-/* ช่องกรอก */
+/* input */
 input {
   width: 60px;
   background: #fff3d6;
   border: 1px solid #5c3b1e;
   text-align: center;
-}
-
-/* เส้นแบ่ง */
-hr {
-  border: 1px solid #5c3b1e;
-}
-
-/* ผลลัพธ์ */
-.result {
-  text-align: center;
-  margin-top: 10px;
-  font-family: 'Cinzel';
   font-weight: bold;
-  text-shadow: 0 0 5px gold;
 }
 
 /* ปุ่ม */
 button {
-  width: 100%;
-  margin-top: 10px;
+  margin-top: 8px;
   padding: 6px;
   background: #5c3b1e;
   color: #f4e4c1;
@@ -76,6 +75,21 @@ button {
 button:hover {
   background: #7a4f2b;
 }
+
+/* ผลลัพธ์ */
+.result {
+  margin-top: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: #3b2b1a;
+  text-shadow: 0 0 6px gold;
+}
+
+/* scroll (กันล้น) */
+.container {
+  overflow-y: auto;
+}
 </style>
 </head>
 
@@ -83,18 +97,51 @@ button:hover {
 
 <div class="book">
   <div class="title">Grimoire of Wealth</div>
-
   <hr>
 
-  <div class="row">Bronze <input></div>
-  <div class="row">Silver <input></div>
-  <div class="row">Gold <input></div>
-  <div class="row">Platinum <input></div>
+  <div class="container">
 
-  <button>Invoke</button>
+    <div class="row">Bronze <input id="b" type="number" value="0"></div>
+    <div class="row">Silver <input id="s" type="number" value="0"></div>
+    <div class="row">Gold <input id="g" type="number" value="0"></div>
+    <div class="row">Platinum <input id="p" type="number" value="0"></div>
 
-  <div class="result">0P 0G 0S 0B</div>
+    <button onclick="addMoney()">➕ Invoke Coin</button>
+    <button onclick="clearMoney()">🗑 Clear</button>
+
+  </div>
+
+  <div class="result" id="result">
+    0P 0G 0S 0B
+  </div>
 </div>
+
+<script>
+function addMoney() {
+  const b = +document.getElementById("b").value || 0;
+  const s = +document.getElementById("s").value || 0;
+  const g = +document.getElementById("g").value || 0;
+  const p = +document.getElementById("p").value || 0;
+
+  const total = b + s*10 + g*100 + p*1000;
+
+  const P = Math.floor(total / 1000);
+  const G = Math.floor((total % 1000) / 100);
+  const S = Math.floor((total % 100) / 10);
+  const B = total % 10;
+
+  document.getElementById("result").innerText =
+    `${P}P ${G}G ${S}S ${B}B`;
+}
+
+function clearMoney() {
+  document.getElementById("b").value = 0;
+  document.getElementById("s").value = 0;
+  document.getElementById("g").value = 0;
+  document.getElementById("p").value = 0;
+  document.getElementById("result").innerText = "0P 0G 0S 0B";
+}
+</script>
 
 </body>
 </html>
