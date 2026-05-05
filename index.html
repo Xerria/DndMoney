@@ -1,22 +1,100 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Money Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  background: #2b1e14;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* หนังสือ */
+.book {
+  width: 300px;
+  background: #f4e4c1;
+  border: 5px solid #5c3b1e;
+  border-radius: 10px;
+  box-shadow: 0 0 20px black;
+  padding: 15px;
+}
+
+/* หัวข้อ */
+.title {
+  text-align: center;
+  font-family: 'Uncial Antiqua';
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* ช่องเงิน */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  font-family: 'Cinzel';
+}
+
+/* ช่องกรอก */
+input {
+  width: 60px;
+  background: #fff3d6;
+  border: 1px solid #5c3b1e;
+  text-align: center;
+}
+
+/* เส้นแบ่ง */
+hr {
+  border: 1px solid #5c3b1e;
+}
+
+/* ผลลัพธ์ */
+.result {
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Cinzel';
+  font-weight: bold;
+  text-shadow: 0 0 5px gold;
+}
+
+/* ปุ่ม */
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 6px;
+  background: #5c3b1e;
+  color: #f4e4c1;
+  border: none;
+  cursor: pointer;
+  font-family: 'Cinzel';
+}
+
+button:hover {
+  background: #7a4f2b;
+}
+</style>
 </head>
+
 <body>
-  <h3>DnD Money</h3>
 
-  Bronze: <input id="bronze" type="number" value="0"><br>
-  Silver: <input id="silver" type="number" value="0"><br>
-  Gold: <input id="gold" type="number" value="0"><br>
-  Platinum: <input id="platinum" type="number" value="0"><br><br>
+<div class="book">
+  <div class="title">Grimoire of Wealth</div>
 
-  <button onclick="add()">Add</button>
-  <button onclick="save()">Save</button>
+  <hr>
 
-  <p id="result"></p>
+  <div class="row">Bronze <input></div>
+  <div class="row">Silver <input></div>
+  <div class="row">Gold <input></div>
+  <div class="row">Platinum <input></div>
 
-<script src="main.js"></script>
+  <button>Invoke</button>
+
+  <div class="result">0P 0G 0S 0B</div>
+</div>
+
 </body>
 </html>
