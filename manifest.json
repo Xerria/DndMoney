@@ -4,7 +4,7 @@
   "manifest_version": 1,
   "action": {
     "title": "Grimoire",
-    "icon": "icon.png",
-    "popover": "index.html"
+    "icon": "https://xerria.github.io/DndMoney/icon.png",
+    "popover": "https://xerria.github.io/DndMoney/index.html"
   }
 }
