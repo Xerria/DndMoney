@@ -1,9 +1,9 @@
 {
-  "name": "DnD Money Tracker",
+  "name": "Grimoire Money",
   "version": "1.0.0",
   "manifest_version": 1,
   "action": {
-    "title": "Money Tracker",
+    "title": "Grimoire",
     "icon": "/icon.png",
     "popover": "/index.html"
   }
