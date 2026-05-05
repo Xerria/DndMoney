@@ -4,8 +4,7 @@
   "manifest_version": 1,
   "action": {
     "title": "Grimoire",
-    "icon": "/icon.png",
-    "popover": "/index.html"
+    "icon": "icon.png",
+    "popover": "index.html"
   }
 }
-
